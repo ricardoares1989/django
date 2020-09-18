@@ -14,8 +14,12 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbempleados',
+        'USER': 'WtSsWWkkvUMOZKEergaBWpMQqYUsmtFm',
+        'PASSWORD': 'nUOBbYbiaoj0ZTgp5CNZ4JvAbTCw0lvfAUqElrr4tCBOKVQPpC0QWGZ1qiOfCd9j',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 

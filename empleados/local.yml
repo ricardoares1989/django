@@ -1,0 +1,33 @@
+version: '3'
+
+volumes:
+  local_empleados_postgres_data: {}
+  local_empleados_postgres_data_backups: {}
+  local_empleados_pgadmin_data: {}
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: empleados_postgress
+    container_name: postgres_empleados
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_empleados_postgres_data:/var/lib/postgresql/data
+      - local_empleados_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.local/.postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_empleados
+    env_file:
+      - ./.envs/.local/.pgadmin
+    depends_on:
+      - postgres
+    ports:
+      - "80:80"
+    volumes:
+      - local_empleados_pgadmin_data:/var/lib/pgadmin

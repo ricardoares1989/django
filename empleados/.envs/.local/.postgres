@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=dbempleados
+POSTGRES_USER=WtSsWWkkvUMOZKEergaBWpMQqYUsmtFm
+POSTGRES_PASSWORD=nUOBbYbiaoj0ZTgp5CNZ4JvAbTCw0lvfAUqElrr4tCBOKVQPpC0QWGZ1qiOfCd9j
