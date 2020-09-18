@@ -2,3 +2,4 @@ django
 psycopg2==2.8.5 --no-binary psycopg2
 Pillow
 django-ckeditor
+ipdb
