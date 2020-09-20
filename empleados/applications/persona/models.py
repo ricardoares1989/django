@@ -31,6 +31,7 @@ class Empleado(models.Model):
     departament = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     first_name = models.CharField('Nombres', max_length=60)
     last_name = models.CharField('Apellidos', max_length=60)
+    fullname = models.CharField("Nombre completo", max_length=120, blank=True)
     job = models.CharField('Trabajo', choices=JOB_CHOICES, max_length=50)
     avatar = models.ImageField(upload_to='empleado', blank=True, null=True)
     habilidades = models.ManyToManyField(Habilidades)

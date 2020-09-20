@@ -5,6 +5,7 @@ from django.views.generic import (
     CreateView
 )
 from .models import Prueba
+from .forms import PruebaForm
 
 # Create your views here.
 class PruebaView(TemplateView):
@@ -12,6 +13,10 @@ class PruebaView(TemplateView):
     # vamos a referenciar el template que pintaremos.
     template_name = 'home/prueba.html'
 
+class PracticaView(TemplateView):
+    """ Vista generica."""
+    # vamos a referenciar el template que pintaremos.
+    template_name = 'home/resume_foundation.html'
 
 class PruebaListView(ListView):
     template_name = "home/list.html"
@@ -26,4 +31,5 @@ class ListarPrueba(ListView):
 class PruebaCreateView(CreateView):
     template_name = "home/add.html"
     model = Prueba
-    fields = ['titulo', 'subtitulo', 'cantidad']
+    form_class = PruebaForm
+    success_url = '/'

@@ -8,4 +8,5 @@ urlpatterns = [
     # inluimos los urls de las apps locales.
     re_path('', include('applications.home.urls')),
     re_path('', include('applications.persona.urls')),
+    re_path('', include('applications.departamento.urls')),
 ]
