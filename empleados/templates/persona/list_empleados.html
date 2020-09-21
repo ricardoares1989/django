@@ -7,14 +7,6 @@
   <div class="grid-container">
       <div class="grid-x">
           <h1>Lista empleados</h1>
-          <form class="cell grid-x grid-margin-x">
-              <div class="cell large-7">
-                  <input type="text" id="kword" name="kword" placeholder="Buscar empleado">
-              </div>
-              <div class="cell large-2">
-                <button type="submit" class="success button">Buscar</button>
-              </div>
-            </form>
           <div class="cell">
             <table>
                 <thead>
@@ -27,13 +19,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                    {% for e in lista  %}
+                    {% for empleado in empleados  %}
                     <tr>
-                      <td>{{ e.id }}</td>
-                      <td>{{ e.first_name }}</td>
-                      <td>{{ e.last_name }}</td>
-                      <td>{{ e.departament }}</td>
-                      <td><a class="button small" href="{% url 'persona_app:empleado_detail' e.id %}">Ver</a></td>
+                      <td>{{ empleado.id }}</td>
+                      <td>{{ empleado.first_name }}</td>
+                      <td>{{ empleado.last_name }}</td>
+                      <td>{{ empleado.departament }}</td>
+                        <td>
+                          <a class="button success" href="{% url 'persona_app:update' empleado.id %}">Editar</a>
+                        </td>
+                      <td>
+                          <a class="button alert" href="{% url 'persona_app:delete' empleado.id %}">Eliminar</a>
+                      </td>
                     </tr>
                     {% endfor %}
                 </tbody>

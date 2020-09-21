@@ -1,8 +1,37 @@
-<h1>Detalle de un empleado {{ titulo }}</h1>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  {{object.first_name}}
+  <!-- Tenemos  el nombre del empleado, ya que
+    object es el objeto que esta recibiendo de la vista-->
+{% endblock title %}
 
-{{ empleado }}
+{% block content %}
+{% include "includes/header.html" %}
+  <div class="grid-x grid-margin-x align-center">
+      <div class="cell card large-4">
 
-<h1> Datos del empleado </h1>
-<p>{{ empleado.first_name }}</p>
-<p>{{ empleado.last_name }}</p>
-<p>{{ empleado.departament.name }}</p>
+          <div class="card-divider" style="width: 300px;">
+              {{ object.get_job_display }}
+          </div>
+          {% if object.avatar %}
+            <img src="{{ object.avatar.url }}" alt="imagen de la persona">
+          {% else %}
+              <img src="{% static 'img/promo_2.png' %}" alt="Pon tu foto">
+          {% endif %}
+          <div class="card-section">
+              <h4>{{object.first_name}} {{object.last_name}}</h4>
+              <p>{{ object.departament.short_name }}</p>
+              <p><span class="label">
+                <ul class="vertical menu">
+                    {% for h in object.habilidades.all  %}
+                      <li>
+                          {{ h.habilidad }}
+                      </li>
+                    {% endfor %}
+                </ul>
+              </span></p>  
+          </div>
+      </div>
+  </div>
+{% endblock content %}

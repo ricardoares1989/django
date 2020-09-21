@@ -35,8 +35,7 @@ class Empleado(models.Model):
     job = models.CharField('Trabajo', choices=JOB_CHOICES, max_length=50)
     avatar = models.ImageField(upload_to='empleado', blank=True, null=True)
     habilidades = models.ManyToManyField(Habilidades)
-    hoja_vida = RichTextField()
-
+    
     class Meta:
         verbose_name = 'Empleado de ideartec'
         verbose_name_plural = 'Empleados de ideartec'

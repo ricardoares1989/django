@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inicio | empleados{% endblock title %}
+
+{% block content %}
+  {% include "includes/header.html" %}
+  <!-- Inicio de imagen -->
+  <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+        <li class="is-active orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/Entrega_promo_phone.png' %}" alt="Space">
+            <figcaption class="orbit-caption">Entrega a tiempo.</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/promo_2.png' %}" alt="Space">
+            <figcaption class="orbit-caption">Gestionamos tu entrega!</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/promo_3.png' %}" alt="Space">
+            <figcaption class="orbit-caption">Gestionamos tu entrega!</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Fin de imagen. -->
+<!-- inicio de bloque de bienvenida -->
+<div class="grid-x">
+    <h1 class="cell large-12" style="font-size: 20px; text-align: center;">Bievenido a registro de empleados.</h1>
+    <div class="cell large-12">
+        <div class="callout success" style="text-align: center;">
+            <h5>Registro y control de empleados</h5>
+            <a href="#">Ver empleados.</a>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- fin de bloque de bienvenida -->
+
+{% endblock content %}

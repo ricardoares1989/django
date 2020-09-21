@@ -30,3 +30,5 @@ DATABASES = {
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR.with_name('static')]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.with_name('media')

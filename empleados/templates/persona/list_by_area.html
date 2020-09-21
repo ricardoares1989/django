@@ -1,5 +1,38 @@
-<h1> Listas por area<h1>
+{% extends 'base.html' %}
+{% block title %}
+  Empleados por area.
+{% endblock title %}
+{% block content %}
+    {% include "includes/header.html" %}
+    <div class="grid-container">
+        <div class="grid_x">
+            <h1>Empleados por area</h1>
+            <table>
+                <thead>
+                  <tr>
+                    <th width="200">ID</th>
+                    <th>Nombre</th>
+                    <th width="150">Apellidos</th>
+                    <th width="150">Departamento</th>
+                    <th width="150">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in empleados  %}
+                    <tr>
+                      <td>{{ empleado.id }}</td>
+                      <td>{{ empleado.first_name }}</td>
+                      <td>{{ empleado.last_name }}</td>
+                      <td>{{ empleado.departament }}</td>
+                      <td><a class="button small" href="{% url 'persona_app:empleado_detail' empleado.id %}">Ver</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% if is_paginated %}
+      {% include 'includes/paginator.html' %}
+    {% endif %}
 
-{% for list in object_list %}
-    {{ list.first_name }}
-{% endfor %}
+{% endblock content %}
